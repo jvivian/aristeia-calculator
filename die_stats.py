@@ -1,5 +1,6 @@
 from die import die
 from collections import defaultdict
+from collections import Counter
 import pandas as pd
 import numpy as np
 
@@ -21,7 +22,7 @@ def counts_to_probabilities(counts):
     counts = {k: {x: float(y) / n for x, y in v.iteritems()} for k, v in counts.iteritems()}
     return pd.DataFrame(counts).replace(np.nan, 0)
 
-def hash_die_probabilties(die, n_rolls=100000, hdf_path='./die-probs.hdf'):
+def hash_die_probabilties(die, n_rolls=10000, hdf_path='./die-probs.hdf'):
     """Store simulated die probabilities in HDF file"""
     for d, df in die.iteritems():
         dists = simulate_dists(die[d], n_rolls=n_rolls)
