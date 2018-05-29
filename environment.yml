@@ -5,6 +5,7 @@ dependencies:
 - pandas
 - numpy
 - ipywidgets
+- bokeh
 - pip
 - pip:
   - git+https://github.com/ioam/holoviews@master
