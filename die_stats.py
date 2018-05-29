@@ -1,3 +1,4 @@
+import sys
 from collections import defaultdict
 
 import numpy as np
@@ -19,7 +20,6 @@ def roll(die, attacker, defender, n_rolls=1000):
     # Objects to hold counts
     a_rolls, d_rolls = [], []
     t_total = defaultdict(list)
-    output = {}  # Final output containing dists
 
     # Convert attacker / defender widgets to die counts
     a_counts = {x: y.value for x, y in attacker.iteritems()}
@@ -38,6 +38,12 @@ def roll(die, attacker, defender, n_rolls=1000):
         # Calculate total diffs
         a = pd.Series({x: sum(y) for x, y in a_pool.iteritems()})
         d = pd.Series({x: sum(y) for x, y in d_pool.iteritems()})
+
+        # Check die aren't empty
+        if 'crit' not in a.index or 'crit' not in d.index:
+            print 'Dice not selected for both attacker and defender! ' \
+                  '\nSelect dice for both and re-run cell again.'
+            sys.exit(1)
 
         # If crit-defense die, drop roll with highest number of hits
         # TODO: Improve logic for removing most glyphs if tie
