@@ -1,0 +1,10 @@
+name: aristeia-calculator
+dependencies:
+- python=2
+- jupyter
+- pandas
+- numpy
+- ipywidgets
+- pip
+- pip:
+  - git+https://github.com/ioam/holoviews@master
