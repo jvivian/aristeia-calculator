@@ -58,6 +58,7 @@ def create_mulligan(team1, team2):
 
 
 def run_mulligan(aristos, team1, check1, team2, check2):
+    aristos = set(aristos)
     # Identify who to mulligan
     c1 = [x.description for x in check1.children if x.value == True]
     c2 = [x.description for x in check2.children if x.value == True]
