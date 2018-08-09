@@ -2,19 +2,30 @@ import random
 
 from ipywidgets import Checkbox, VBox, Accordion
 
-aristos = {'Valkyrie',
-           'Hexxar',
-           'Hannibal',
-           'Lunah',
-           'Gata',
-           '8-Ball',
-           'Senor Massacre',
-           'Laxmee',
-           'Mistubishi',
-           'Wild Bill',
-           'Maximus',
-           'Lunah',
-           'Pavarti'}
+core = ['Hexxar',
+        'Lunah',
+        'Gata',
+        '8-Ball',
+        'Mistubishi',
+        'Wild Bill',
+        'Maximus',
+        'Lunah',
+        'Pavarti']
+
+sof = ['Valkyrie',
+       'Hannibal',
+       'Senor Massacre',
+       'Laxmee']
+
+sm = ['Taowu',
+      'Kosmo',
+      'Mutair',
+      'Mendoza']
+
+hf = ['Eclypse',
+      'Dart',
+      'Bixie',
+      'Prysm']
 
 maps = ['Blitz',
         'Carnage',
@@ -25,6 +36,7 @@ maps = ['Blitz',
 
 def generate_initial_teams(aristos):
     """Generate two teams """
+    aristos = set(aristos)
     first_team = random.sample(aristos, 4)
     second_team = random.sample(
         aristos.difference(set(first_team)), 4)
